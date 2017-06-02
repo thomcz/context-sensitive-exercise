@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<script src="./bower_components/influent/dist/influent.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Toggle Switch</h2>
+
+<form class="container">
+  Context<br>
+  <input class="form-input form-border" type="text" name="context" value="call it context"/>
+</form> 
+<br>
+
+<label class="switch">
+  <input type="checkbox">
+  <div class="slider"></div>
+</label>
+
+<div class="main">
+  <h2>Device Orientation</h2>
+  <table>
+    <tr>
+      <td>Event Supported</td>
+      <td id="doEvent"></td>
+    </tr>
+    <tr>
+      <td>Tilt Left/Right [gamma]</td>
+      <td id="doTiltLR"></td>
+    </tr>
+    <tr>
+      <td>Tilt Front/Back [beta]</td>
+      <td id="doTiltFB"></td>
+    </tr>
+    <tr>
+      <td>Direction [alpha]</td>
+      <td id="doDirection"></td>
+    </tr>
+   </table>
+</div>
+
+</body>
+</html> 
