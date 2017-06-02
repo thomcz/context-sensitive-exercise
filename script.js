@@ -7,22 +7,19 @@ if(this.checked) {
   }
 }
 if (window.DeviceOrientationEvent) {
-document.getElementById("debug").innerHTML = "Not recording."
+  document.getElementById("debug").innerHTML = "Not recording."
   // Listen for the deviceorientation event and handle the raw data
-  window.addEventListener('deviceorientation', function(eventData) {
-    // gamma is the left-to-right tilt in degrees, where right is positive
-    var tiltLR = eventData.gamma;
-    // beta is the front-to-back tilt in degrees, where front is positive
-    var tiltFB = eventData.beta;
-    // alpha is the compass direction the device is facing in degrees
-    var dir = eventData.alpha
-    // call our orientation event handler
-    deviceOrientationHandler(tiltLR, tiltFB, dir);
-  }, false);
+  window.addEventListener('deviceorientation', deviceOrientationHandler);
 } else {
   document.getElementById("debug").innerHTML = "Not supported."
 }
-function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+function deviceOrientationHandler(event) {
+  // gamma is the left-to-right tilt in degrees, where right is positive
+    var tiltLR = event.gamma;
+    // beta is the front-to-back tilt in degrees, where front is positive
+    var tiltFB = event.beta;
+    // alpha is the compass direction the device is facing in degrees
+    var dir = event.alpha
     if (document.getElementById('record').checked) {
 		document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
 		document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
